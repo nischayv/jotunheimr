@@ -9,7 +9,6 @@ services:
 
 before_install:
   - docker build -t nischayv/jotunheimr .
-  - docker run -p 8080:8080 nischayv/jotunheimr
   - docker ps -a
 
 after_success:
