@@ -8,12 +8,12 @@ services:
   - docker
 
 before_install:
-  - docker build -t nischayv/jotunheimr .
+  - docker build -t jotunheimr .
   - docker ps -a
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$HEROKU_EMAIL" -u="$HEROKU_USERNAME" -p="$HEROKU_PASSWORD" registry.heroku.com;
-    docker tag nischayv/jotunheimr registry.heroku.com/jotunheimr/web;
+    docker tag jotunheimr registry.heroku.com/jotunheimr/web;
     docker push registry.heroku.com/jotunheimr/web;
     fi
